@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="container-fluid">
+
+    <!-- Navbar per Utente Logato come Paziente-->
+    <ul class="navbar-nav mr-auto" *ngIf="showPatientBoard">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="Home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" routerLink="/Paziente">Paziente</a>
+      </li>
+    </ul>
+
+    <!-- Navbar per Utente Logato come Operatore-->
+    <ul class="navbar-nav mr-auto" *ngIf="showOperatorBoard">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="Home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" routerLink="/Operatore">Operatore</a>
+      </li>
+    </ul>
+
+    <!-- Navbar per Utente non Logato-->
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/Register">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/Login">Login</a>
+      </li>
+    </ul>
+
+    <!-- Navbar per Profilo ed LogOut -->
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <a href="/profile" class="nav-link" routerLink="/Profile">{{username}}</a>
+      </li>
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">LogOut</a>
+      </li>
+    </ul>
+  </div>
+</nav>
