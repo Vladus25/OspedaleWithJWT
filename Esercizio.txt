@@ -1,0 +1,3 @@
+Riprendendo l'esercitazione in ambito ospedaliero, creare dei servizi rest che consentano il login a due diverse categorie di utenti: operatore e paziente.
+Ciascun utente, in base al ruolo visualizzerà contenuti differenti. Il paziente potrà visualizzare le prenotazioni, i suoi dati e lo storico degli esami effettuati, nonchè scaricare i riferti in opdf.
+L'operatore potrà registrare un paziente, un medico, associare un medico ad un reparto e visualizzare tutti i dati, visite e referti, nonchè effettuare l'upload dei referti per ciascun utente.
