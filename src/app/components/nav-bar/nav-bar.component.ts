@@ -7,7 +7,7 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent {
-  private roles!: string;
+  roles!: string;
   isLoggedIn = false;
   showOperatorBoard = false;
   showPatientBoard = false;

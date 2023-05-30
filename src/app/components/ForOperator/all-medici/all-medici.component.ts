@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConnectionDBService } from 'src/app/services/connection-db.service';
 
 @Component({
   selector: 'app-all-medici',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AllMediciComponent {
 
+  tuttiMedici:any;
+
+  constructor(private http: ConnectionDBService) { }
+
+  ngOnInit(){
+    this.getTuttiMedici();
+  }
+
+  getTuttiMedici() {
+    this.http.getTuttiMedici().subscribe(data => {
+      this.tuttiMedici = data;
+    });
+  }
 }

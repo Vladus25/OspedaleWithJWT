@@ -23,21 +23,21 @@
         <a class="nav-link" routerLink="Home">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" aria-current="page" routerLink="/Operatore">Operatore</a>
+        <div ngbDropdown>
+          <a class="nav-link dropdown-toggle cursor-pointer" aria-current="page" id="dropdownBasic1" ngbDropdownToggle>
+            Visualizza tutti dati
+          </a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <a ngbDropdownItem aria-current="page" routerLink="/All-Pazienti">Pazienti</a>
+            <a ngbDropdownItem aria-current="page" routerLink="/All-Medici">Medici</a>
+            <a ngbDropdownItem aria-current="page" routerLink="/All-Reparti">Reparti</a>
+            <a ngbDropdownItem aria-current="page" routerLink="/All-Visite">Visite</a>
+            <a ngbDropdownItem aria-current="page" routerLink="/All-Esami">Esami</a>
+          </div>
+        </div>
       </li>
-      <li class="nav-item">
 
-            <div ngbDropdown>
-              <a class="nav-link" aria-current="page" id="dropdownBasic1" ngbDropdownToggle> Visualizza tutti dati</a>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <a ngbDropdownItem aria-current="page" routerLink="/All-Esami">Esami</a>
-                <a ngbDropdownItem aria-current="page" routerLink="/All-Medici">Medici</a>
-                <a ngbDropdownItem aria-current="page" routerLink="/All-Pazienti">Pazineti</a>
-                <a ngbDropdownItem aria-current="page" routerLink="/All-Reparti">Reparti</a>
-                <a ngbDropdownItem aria-current="page" routerLink="/All-Visite">Visite</a>
-              </div>
-            </div>
-      </li>
+
     </ul>
 
     <!-- Navbar per Utente non Logato-->

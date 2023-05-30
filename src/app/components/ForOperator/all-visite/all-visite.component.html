@@ -1,1 +1,23 @@
-<p>all-visite works!</p>
+<div class="container">
+  <h2>Tutti Visite</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Paziente</th>
+        <th>Medico</th>
+        <th>Esame</th>
+        <th>Data</th>
+        <th>Esito</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let visita of tuttiVisite">
+        <td>{{ visita.idPaziente.nome}} {{ visita.idPaziente.cognome}}</td>
+        <td>{{ visita.idMedico.nome}} {{ visita.idMedico.cognome}}</td>
+        <td>{{ visita.idVisita.nome }}</td>
+        <td>{{ visita.data }}</td>
+        <td>{{ visita.esito }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

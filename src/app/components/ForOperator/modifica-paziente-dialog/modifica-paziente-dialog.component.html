@@ -1,0 +1,50 @@
+<h2 mat-dialog-title>Modifica Paziente</h2>
+<form (ngSubmit)="submitForm()" #pazienteForm="ngForm">
+  <div style="display: flex;">
+    <div class="form-grid">
+      <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="paziente.nome" name="nome" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Cognome</mat-label>
+        <input matInput [(ngModel)]="paziente.cognome" name="cognome" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Codice Fiscale</mat-label>
+        <input matInput [(ngModel)]="paziente.codFis" name="codFis" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Data di Nascita</mat-label>
+        <input matInput type="text" onfocus="(this.type='date')" [(ngModel)]="paziente.dataN" name="dataN" required>
+      </mat-form-field>
+    </div>
+
+    <div class="form-grid">
+      <mat-form-field>
+        <mat-label>Luogo di Nascita</mat-label>
+        <input matInput [(ngModel)]="paziente.luogoN" name="luogoN" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Sesso</mat-label>
+        <select matNativeControl [(ngModel)]="paziente.sesso" name="sesso" required>
+          <option value="M">M</option>
+          <option value="F">F</option>
+        </select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Data Ricovero</mat-label>
+        <input matInput type="text" onfocus="(this.type='date')" [(ngModel)]="paziente.dataRicovero" name="dataRicovero" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Id Reparto</mat-label>
+        <input matInput [(ngModel)]="paziente.idReparto.id" name="idReparto" required>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="cancel()">Annulla</button>
+    <button mat-button type="submit" [disabled]="!pazienteForm.valid">Salva</button>
+  </div>
+</form>

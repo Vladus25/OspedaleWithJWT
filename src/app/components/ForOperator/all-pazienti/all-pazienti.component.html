@@ -1,1 +1,48 @@
-<p>all-pazienti works!</p>
+<div class="container">
+
+  <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 15px;">
+    <h2>Pazienti</h2>
+    <button mat-raised-button color="primary" (click)="addPaziente()">Aggiungi</button>
+
+  </div>
+
+  <table class="table table-striped">
+
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Codice Fiscale</th>
+        <th>Data Nascita</th>
+        <th>Luogo Nascita</th>
+        <th>Sesso</th>
+        <th>Data Ricovero</th>
+        <th>Reparto</th>
+        <th>Elimina</th>
+        <th>Modifica</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let paziente of pazienti">
+        <td>{{ paziente.id }}</td>
+        <td>{{ paziente.nome }}</td>
+        <td>{{ paziente.cognome }}</td>
+        <td>{{ paziente.codFis }}</td>
+        <td>{{ paziente.dataN }}</td>
+        <td>{{ paziente.luogoN }}</td>
+        <td>{{ paziente.sesso }}</td>
+        <td>{{ paziente.dataRicovero }}</td>
+        <td >{{ paziente.idReparto.nome }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deletePaziente(paziente.id)">Elimina</button>
+        </td>
+        <td>
+          <button mat-raised-button color="primary" (click)="modificaPaziente(paziente.id, paziente)">Modifica</button>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>

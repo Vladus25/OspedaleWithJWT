@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { authInterceptorProviders } from './authentication/auth.interceptor';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -22,6 +22,14 @@ import { AllRepartiComponent } from './components/ForOperator/all-reparti/all-re
 import { NewPazienteComponent } from './components/ForOperator/new-paziente/new-paziente.component';
 import { NewMedicoComponent } from './components/ForOperator/new-medico/new-medico.component';
 import { NewAssociateMedicoToRepartoComponent } from './components/ForOperator/new-associate-medico-to-reparto/new-associate-medico-to-reparto.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddPazienteDialogComponent } from './components/ForOperator/add-paziente-dialog/add-paziente-dialog.component';
+import { ModificaPazienteDialogComponent } from './components/ForOperator/modifica-paziente-dialog/modifica-paziente-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { AssociateMedicoRepartoComponent } from './components/ForOperator/associate-medico-reparto/associate-medico-reparto.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +49,9 @@ import { NewAssociateMedicoToRepartoComponent } from './components/ForOperator/n
     NewPazienteComponent,
     NewMedicoComponent,
     NewAssociateMedicoToRepartoComponent,
+    AddPazienteDialogComponent,
+    ModificaPazienteDialogComponent,
+    AssociateMedicoRepartoComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +59,12 @@ import { NewAssociateMedicoToRepartoComponent } from './components/ForOperator/n
     FormsModule,
     HttpClientModule,
     NgbModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

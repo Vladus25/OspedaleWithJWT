@@ -1,1 +1,19 @@
-<p>all-medici works!</p>
+<div class="container">
+  <h2>Tutti Medici</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Medico</th>
+        <th>Data di Nascita</th>
+        <th>Luogo di Nascita</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let medico of tuttiMedici">
+        <td>{{ medico.nome}} {{ medico.cognome}}</td>
+        <td>{{ medico.dataN }}</td>
+        <td>{{ medico.luogoN }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

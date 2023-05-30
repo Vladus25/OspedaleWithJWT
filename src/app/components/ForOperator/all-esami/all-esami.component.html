@@ -1,1 +1,23 @@
-<p>all-esami works!</p>
+<div class="container">
+  <h2>Tutti Esami</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Paziente</th>
+        <th>Esame</th>
+        <th>Data</th>
+        <th>Esito</th>
+        <th>Prezzo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let esame of tuttiEsami">
+        <td>{{ esame.idPaziente.nome}} {{ esame.idPaziente.cognome}}</td>
+        <td>{{ esame.idEsame.nome }}</td>
+        <td>{{ esame.data }}</td>
+        <td>{{ esame.esito }}</td>
+        <td>{{ esame.idEsame.prezzo }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
