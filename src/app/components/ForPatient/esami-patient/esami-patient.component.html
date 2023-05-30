@@ -1,2 +1,22 @@
 <!-- Visualizzare la tabella esami e solo quelli dati che sono relativi ad paziente -->
-<p>esami-patient works!</p>
+<div class="container">
+  <h2>Esami</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Esame</th>
+        <th>Esito</th>
+        <th>Prezzo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of esamiPaziente">
+        <td>{{ e.data }}</td>
+        <td>{{ e.nome }}</td>
+        <td>{{ e.esito }}</td>
+        <td>{{ e.prezzo }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

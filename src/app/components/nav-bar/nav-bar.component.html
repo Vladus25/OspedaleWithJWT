@@ -7,7 +7,13 @@
         <a class="nav-link" routerLink="Home">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" aria-current="page" routerLink="/Paziente">Paziente</a>
+        <a class="nav-link" aria-current="page" routerLink="/Dati-Paziente">Dati del Paziente</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" routerLink="/Esami-Paziente">Esami</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" routerLink="/Visite-Paziente">Visite</a>
       </li>
     </ul>
 
@@ -18,6 +24,19 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" aria-current="page" routerLink="/Operatore">Operatore</a>
+      </li>
+      <li class="nav-item">
+
+            <div ngbDropdown>
+              <a class="nav-link" aria-current="page" id="dropdownBasic1" ngbDropdownToggle> Visualizza tutti dati</a>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <a ngbDropdownItem aria-current="page" routerLink="/All-Esami">Esami</a>
+                <a ngbDropdownItem aria-current="page" routerLink="/All-Medici">Medici</a>
+                <a ngbDropdownItem aria-current="page" routerLink="/All-Pazienti">Pazineti</a>
+                <a ngbDropdownItem aria-current="page" routerLink="/All-Reparti">Reparti</a>
+                <a ngbDropdownItem aria-current="page" routerLink="/All-Visite">Visite</a>
+              </div>
+            </div>
       </li>
     </ul>
 

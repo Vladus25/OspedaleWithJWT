@@ -1,2 +1,32 @@
 <!-- Visualizzare la tabella paziente e solo suoi dati relativi e anche includere lo scarico del pdf-->
-<p>dati-patient works!</p>
+<div class="container">
+  <h2>Paziente</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr class="text-center">
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Codice Fiscale</th>
+        <th>Data di Nascita</th>
+        <th>Luogo di Nascita</th>
+        <th>Sesso</th>
+        <th>Reparto</th>
+        <th>Data Ricovero</th>
+        <th>Referto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="text-center" *ngFor="let p of datiPaziente">
+        <td>{{ p.nomePaziente }}</td>
+        <td>{{ p.cognomePaziente }}</td>
+        <td>{{ p.codFisPaziente }}</td>
+        <td>{{ p.data_n }}</td>
+        <td>{{ p.luogo_n }}</td>
+        <td>{{ p.sesso }}</td>
+        <td>{{ p.nomeReparto}}</td>
+        <td>{{ p.data_ricovero}}</td>
+        <td><button (click)="downloadPdf(p.pazienteId)">Download</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

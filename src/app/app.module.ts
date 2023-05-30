@@ -40,7 +40,7 @@ import { NewAssociateMedicoToRepartoComponent } from './components/ForOperator/n
     AllRepartiComponent,
     NewPazienteComponent,
     NewMedicoComponent,
-    NewAssociateMedicoToRepartoComponent
+    NewAssociateMedicoToRepartoComponent,
   ],
   imports: [
     BrowserModule,

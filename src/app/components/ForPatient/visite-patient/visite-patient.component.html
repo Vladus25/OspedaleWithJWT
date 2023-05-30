@@ -1,2 +1,23 @@
 <!-- Visualizzare la tabella visita e solo dati relativi ad paziente-->
-<p>visite-patient works!</p>
+<div class="container">
+  <h2>Visite</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Vista</th>
+        <th>Esito</th>
+        <th>Dottore</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vp of visitePaziente">
+        <td>{{ vp.data }}</td>
+        <td>{{ vp.nomeVisita }}</td>
+        <td>{{ vp.esito }}</td>
+        <td>{{ vp.nomeDottore }}  {{ vp.cognomeDottore }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
