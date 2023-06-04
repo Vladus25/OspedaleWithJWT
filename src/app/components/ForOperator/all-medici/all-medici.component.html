@@ -6,6 +6,7 @@
         <th>Medico</th>
         <th>Data di Nascita</th>
         <th>Luogo di Nascita</th>
+        <th>Associa Reparto</th>
       </tr>
     </thead>
     <tbody>
@@ -13,6 +14,7 @@
         <td>{{ medico.nome}} {{ medico.cognome}}</td>
         <td>{{ medico.dataN }}</td>
         <td>{{ medico.luogoN }}</td>
+        <td><button mat-raised-button color="primary" (click)="addMedicoAdReparto(medico.id)">Associa</button></td>
       </tr>
     </tbody>
   </table>

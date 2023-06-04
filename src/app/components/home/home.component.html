@@ -1,2 +1,2 @@
 <h1 class="text-center">Welcome to the web site Hospital</h1>
-<h1 class="text-center">Your role is: {{hiddenRoles}}</h1>
+<h1 class="text-center" *ngIf="isLoggedIn">Your role is: {{hiddenRoles}}</h1>

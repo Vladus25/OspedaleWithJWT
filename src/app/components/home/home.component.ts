@@ -9,10 +9,12 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 export class HomeComponent {
   roles!: string[];
   hiddenRoles!: string;
+  isLoggedIn = false;
 
   constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
     this.roles = this.tokenStorageService.getUser().roles;
     const firstRole = this.roles[0];
     this.hiddenRoles = firstRole.substring(5);

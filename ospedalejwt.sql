@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Creato il: Mag 30, 2023 alle 17:51
--- Versione del server: 10.4.27-MariaDB
--- Versione PHP: 8.2.0
+-- Host: localhost:3306
+-- Generation Time: Jun 04, 2023 at 11:46 PM
+-- Server version: 5.7.24
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,17 +24,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `esame`
+-- Table structure for table `esame`
 --
 
 CREATE TABLE `esame` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL,
   `prezzo` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `esame`
+-- Dumping data for table `esame`
 --
 
 INSERT INTO `esame` (`id`, `nome`, `prezzo`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `esame` (`id`, `nome`, `prezzo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `esame_laboratorio`
+-- Table structure for table `esame_laboratorio`
 --
 
 CREATE TABLE `esame_laboratorio` (
@@ -56,10 +56,10 @@ CREATE TABLE `esame_laboratorio` (
   `esito` varchar(50) NOT NULL,
   `id_esame` int(11) NOT NULL,
   `id_paziente` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `esame_laboratorio`
+-- Dumping data for table `esame_laboratorio`
 --
 
 INSERT INTO `esame_laboratorio` (`id`, `data`, `esito`, `id_esame`, `id_paziente`) VALUES
@@ -72,7 +72,7 @@ INSERT INTO `esame_laboratorio` (`id`, `data`, `esito`, `id_esame`, `id_paziente
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `medico`
+-- Table structure for table `medico`
 --
 
 CREATE TABLE `medico` (
@@ -81,10 +81,10 @@ CREATE TABLE `medico` (
   `data_n` date NOT NULL,
   `luogo_n` varchar(50) NOT NULL,
   `nome` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `medico`
+-- Dumping data for table `medico`
 --
 
 INSERT INTO `medico` (`id`, `cognome`, `data_n`, `luogo_n`, `nome`) VALUES
@@ -92,12 +92,13 @@ INSERT INTO `medico` (`id`, `cognome`, `data_n`, `luogo_n`, `nome`) VALUES
 (2, 'Bianchi', '1975-06-15', 'Roma', 'Laura'),
 (3, 'Verdi', '1990-03-20', 'Napoli', 'Giuseppe'),
 (4, 'Russo', '1985-09-05', 'Firenze', 'Francesca'),
-(5, 'Ferrari', '1982-11-25', 'Torino', 'Luigi');
+(5, 'Ferrari', '1982-11-25', 'Torino', 'Luigi'),
+(6, 'dfsdf', '2005-05-12', 'Milano', 'Michele');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `paziente`
+-- Table structure for table `paziente`
 --
 
 CREATE TABLE `paziente` (
@@ -106,16 +107,16 @@ CREATE TABLE `paziente` (
   `cognome` varchar(50) NOT NULL,
   `data_n` date DEFAULT NULL,
   `data_ricovero` date DEFAULT NULL,
-  `file` longblob DEFAULT NULL,
+  `file` longblob,
   `luogo_n` varchar(50) DEFAULT NULL,
   `nome` varchar(50) NOT NULL,
   `sesso` varchar(1) DEFAULT NULL,
   `id_reparto` int(11) DEFAULT NULL,
   `id_user` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `paziente`
+-- Dumping data for table `paziente`
 --
 
 INSERT INTO `paziente` (`id`, `cod_fis`, `cognome`, `data_n`, `data_ricovero`, `file`, `luogo_n`, `nome`, `sesso`, `id_reparto`, `id_user`) VALUES
@@ -128,17 +129,17 @@ INSERT INTO `paziente` (`id`, `cod_fis`, `cognome`, `data_n`, `data_ricovero`, `
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `reparto`
+-- Table structure for table `reparto`
 --
 
 CREATE TABLE `reparto` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL,
   `id_medico` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `reparto`
+-- Dumping data for table `reparto`
 --
 
 INSERT INTO `reparto` (`id`, `nome`, `id_medico`) VALUES
@@ -146,21 +147,21 @@ INSERT INTO `reparto` (`id`, `nome`, `id_medico`) VALUES
 (2, 'Pneumologia', 2),
 (3, 'Neurologia', 3),
 (4, 'Oncologia', 4),
-(5, 'Gastroenterologia', 5);
+(5, 'Gastroenterologia', 6);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
   `name` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`) VALUES
@@ -170,7 +171,7 @@ INSERT INTO `roles` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -178,10 +179,10 @@ CREATE TABLE `users` (
   `email` varchar(50) DEFAULT NULL,
   `password` varchar(120) DEFAULT NULL,
   `username` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `username`) VALUES
@@ -191,16 +192,16 @@ INSERT INTO `users` (`id`, `email`, `password`, `username`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `user_roles`
+-- Table structure for table `user_roles`
 --
 
 CREATE TABLE `user_roles` (
   `user_id` bigint(20) NOT NULL,
   `role_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `user_roles`
+-- Dumping data for table `user_roles`
 --
 
 INSERT INTO `user_roles` (`user_id`, `role_id`) VALUES
@@ -210,16 +211,16 @@ INSERT INTO `user_roles` (`user_id`, `role_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `visita`
+-- Table structure for table `visita`
 --
 
 CREATE TABLE `visita` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `visita`
+-- Dumping data for table `visita`
 --
 
 INSERT INTO `visita` (`id`, `nome`) VALUES
@@ -230,7 +231,7 @@ INSERT INTO `visita` (`id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `visita_paziente`
+-- Table structure for table `visita_paziente`
 --
 
 CREATE TABLE `visita_paziente` (
@@ -240,10 +241,10 @@ CREATE TABLE `visita_paziente` (
   `id_medico` int(11) NOT NULL,
   `id_paziente` int(11) NOT NULL,
   `id_visita` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `visita_paziente`
+-- Dumping data for table `visita_paziente`
 --
 
 INSERT INTO `visita_paziente` (`id`, `data`, `esito`, `id_medico`, `id_paziente`, `id_visita`) VALUES
@@ -254,17 +255,17 @@ INSERT INTO `visita_paziente` (`id`, `data`, `esito`, `id_medico`, `id_paziente`
 (5, '2023-05-10', 'Negativa', 5, 5, 1);
 
 --
--- Indici per le tabelle scaricate
+-- Indexes for dumped tables
 --
 
 --
--- Indici per le tabelle `esame`
+-- Indexes for table `esame`
 --
 ALTER TABLE `esame`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `esame_laboratorio`
+-- Indexes for table `esame_laboratorio`
 --
 ALTER TABLE `esame_laboratorio`
   ADD PRIMARY KEY (`id`),
@@ -272,13 +273,13 @@ ALTER TABLE `esame_laboratorio`
   ADD KEY `FK5ktke5wd3xqtv6rfrx36lxv7n` (`id_paziente`);
 
 --
--- Indici per le tabelle `medico`
+-- Indexes for table `medico`
 --
 ALTER TABLE `medico`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `paziente`
+-- Indexes for table `paziente`
 --
 ALTER TABLE `paziente`
   ADD PRIMARY KEY (`id`),
@@ -286,20 +287,20 @@ ALTER TABLE `paziente`
   ADD KEY `FKahp285fbpom3r2msa1xen2sva` (`id_user`);
 
 --
--- Indici per le tabelle `reparto`
+-- Indexes for table `reparto`
 --
 ALTER TABLE `reparto`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FKpqvr9h93gykjw8de3xfafkcdh` (`id_medico`);
 
 --
--- Indici per le tabelle `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -307,20 +308,20 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `UK6dotkott2kjsp8vw4d0m25fb7` (`email`);
 
 --
--- Indici per le tabelle `user_roles`
+-- Indexes for table `user_roles`
 --
 ALTER TABLE `user_roles`
   ADD PRIMARY KEY (`user_id`,`role_id`),
   ADD KEY `FKh8ciramu9cc9q3qcqiv4ue8a6` (`role_id`);
 
 --
--- Indici per le tabelle `visita`
+-- Indexes for table `visita`
 --
 ALTER TABLE `visita`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `visita_paziente`
+-- Indexes for table `visita_paziente`
 --
 ALTER TABLE `visita_paziente`
   ADD PRIMARY KEY (`id`),
@@ -329,96 +330,96 @@ ALTER TABLE `visita_paziente`
   ADD KEY `FKrbs9ol9qntbay1opfbvneec99` (`id_visita`);
 
 --
--- AUTO_INCREMENT per le tabelle scaricate
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT per la tabella `esame`
+-- AUTO_INCREMENT for table `esame`
 --
 ALTER TABLE `esame`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT per la tabella `esame_laboratorio`
+-- AUTO_INCREMENT for table `esame_laboratorio`
 --
 ALTER TABLE `esame_laboratorio`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT per la tabella `medico`
+-- AUTO_INCREMENT for table `medico`
 --
 ALTER TABLE `medico`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `paziente`
+--
+ALTER TABLE `paziente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT per la tabella `paziente`
---
-ALTER TABLE `paziente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT per la tabella `reparto`
+-- AUTO_INCREMENT for table `reparto`
 --
 ALTER TABLE `reparto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT per la tabella `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT per la tabella `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT per la tabella `visita`
+-- AUTO_INCREMENT for table `visita`
 --
 ALTER TABLE `visita`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT per la tabella `visita_paziente`
+-- AUTO_INCREMENT for table `visita_paziente`
 --
 ALTER TABLE `visita_paziente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Limiti per le tabelle scaricate
+-- Constraints for dumped tables
 --
 
 --
--- Limiti per la tabella `esame_laboratorio`
+-- Constraints for table `esame_laboratorio`
 --
 ALTER TABLE `esame_laboratorio`
   ADD CONSTRAINT `FK5ktke5wd3xqtv6rfrx36lxv7n` FOREIGN KEY (`id_paziente`) REFERENCES `paziente` (`id`),
   ADD CONSTRAINT `FKhkguytm23bc9amq69oo47jqk7` FOREIGN KEY (`id_esame`) REFERENCES `esame` (`id`);
 
 --
--- Limiti per la tabella `paziente`
+-- Constraints for table `paziente`
 --
 ALTER TABLE `paziente`
   ADD CONSTRAINT `FKahp285fbpom3r2msa1xen2sva` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `FKiftvrrqgwfgxg6qn8rp8pbxio` FOREIGN KEY (`id_reparto`) REFERENCES `reparto` (`id`);
 
 --
--- Limiti per la tabella `reparto`
+-- Constraints for table `reparto`
 --
 ALTER TABLE `reparto`
   ADD CONSTRAINT `FKpqvr9h93gykjw8de3xfafkcdh` FOREIGN KEY (`id_medico`) REFERENCES `medico` (`id`);
 
 --
--- Limiti per la tabella `user_roles`
+-- Constraints for table `user_roles`
 --
 ALTER TABLE `user_roles`
   ADD CONSTRAINT `FKh8ciramu9cc9q3qcqiv4ue8a6` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
   ADD CONSTRAINT `FKhfh9dx7w3ubf1co1vdev94g3f` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Limiti per la tabella `visita_paziente`
+-- Constraints for table `visita_paziente`
 --
 ALTER TABLE `visita_paziente`
   ADD CONSTRAINT `FKjp91ymshnbvryowk5x5xaku5u` FOREIGN KEY (`id_paziente`) REFERENCES `paziente` (`id`),

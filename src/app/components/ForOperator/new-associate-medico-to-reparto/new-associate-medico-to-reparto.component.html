@@ -1,2 +1,18 @@
 <!-- Associare un medico ad reparto -->
-<p>new-associate-medico-to-reparto works!</p>
+<div style="margin: 25px;">
+  <h2>Associare un Medico a un Reparto</h2>
+
+  <div>
+    <mat-form-field>
+      <mat-label>ID Reparto:</mat-label>
+      <select matNativeControl id="idReparto" [(ngModel)]="idReparto" required>
+        <option *ngFor="let reparto of tuttiReparti" [value]="reparto.id">{{ reparto.nome }}</option>
+      </select>
+    </mat-form-field>
+  </div>
+
+  <div  mat-dialog-actions>
+    <button mat-button (click)="submitForm()">Salva</button>
+    <button mat-button (click)="cancel()">Annulla</button>
+  </div>
+</div>

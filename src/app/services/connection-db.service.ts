@@ -59,6 +59,11 @@ export class ConnectionDBService {
     return this.http.put(`${this.baseUrl}/paziente/update/${id}`, paziente);
   }
 
+  addMedicoAdReparto(idMedico: Number, idReparto: Number) {
+    const url = `${this.baseUrl}/reparto/${idReparto}/assign-medico/${idMedico}`;
+    return this.http.post(url, {});
+  }
+
   downloadPdf(id: Number): Observable<HttpResponse<Blob>> {
     const url = `${this.baseUrl}/paziente/download-pdf/${id}`;
     return this.http.get(url, {

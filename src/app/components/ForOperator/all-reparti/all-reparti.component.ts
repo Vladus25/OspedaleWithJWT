@@ -12,7 +12,7 @@ export class AllRepartiComponent {
 
   tuttiReparti:any;
 
-  constructor(private http: ConnectionDBService, private dialog: MatDialog) { }
+  constructor(private http: ConnectionDBService) { }
 
   ngOnInit(){
     this.getTuttiReparti();
@@ -24,15 +24,4 @@ export class AllRepartiComponent {
     });
   }
 
-  // addMedicoAdReparto(idReparto: number) {
-  //   const dialogRef = this.dialog.open(AssociateMedicoRepartoComponent);
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(result);
-  //     this.http.addPaziente(idReparto, result).subscribe((result:any) => {
-  //       console.log(result);
-  //       this.getTuttiReparti();
-  //     });
-  //   });
-  // }
 }
